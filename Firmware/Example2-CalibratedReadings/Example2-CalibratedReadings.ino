@@ -5,7 +5,9 @@
   Date: March 8th, 2017
   License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
 
-  Read the raw Violet, Blue, Green, Yellow, Orange, and Red data from the AS7262 (Visible) or AS7263 (NIR) sensors
+  Read the calibrated sensor values. These are more accurate but you have to deal with floating point numbers.
+  Calibrated Violet, Blue, Green, Yellow, Orange, and Red data from the AS7262 (Visible)
+  Calibrated R, S, T, U, V, W data from the AS7263 (NIR)
 
   The AS726x Qwiic board can be configured to communicate over I2C (default) or serial. This example
   assumes we are communicating over I2C. See schematic for jumpers to change to serial and datasheet
@@ -72,41 +74,37 @@ void loop()
 
   float tempF = getTemperatureF();
   
-  //float calibrationValueV = getVioletCalibration();
-  //Serial.print("calV[");
-  //Serial.print(getCalibratedViolet(), 2);
-
   if(sensorVersion == SENSORTYPE_AS7262)
   {
     //Visible readings
     Serial.print(" Reading: V[");
-    Serial.print(getViolet());
+    Serial.print(getCalibratedViolet(), 2);
     Serial.print("] B[");
-    Serial.print(getBlue());
+    Serial.print(getCalibratedBlue(), 2);
     Serial.print("] G[");
-    Serial.print(getGreen());
+    Serial.print(getCalibratedGreen(), 2);
     Serial.print("] Y[");
-    Serial.print(getYellow());
+    Serial.print(getCalibratedYellow(), 2);
     Serial.print("] O[");
-    Serial.print(getOrange());
+    Serial.print(getCalibratedOrange(), 2);
     Serial.print("] R[");
-    Serial.print(getRed());
+    Serial.print(getCalibratedRed(), 2);
   }
   else if(sensorVersion == SENSORTYPE_AS7263)
   {
     //Near IR readings
     Serial.print(" Reading: R[");
-    Serial.print(getR());
+    Serial.print(getCalibratedR(), 2);
     Serial.print("] S[");
-    Serial.print(getS());
+    Serial.print(getCalibratedS(), 2);
     Serial.print("] T[");
-    Serial.print(getT());
+    Serial.print(getCalibratedT(), 2);
     Serial.print("] U[");
-    Serial.print(getU());
+    Serial.print(getCalibratedU(), 2);
     Serial.print("] V[");
-    Serial.print(getV());
+    Serial.print(getCalibratedV(), 2);
     Serial.print("] W[");
-    Serial.print(getW());
+    Serial.print(getCalibratedW(), 2);
   }
 
   Serial.print("] tempF[");
