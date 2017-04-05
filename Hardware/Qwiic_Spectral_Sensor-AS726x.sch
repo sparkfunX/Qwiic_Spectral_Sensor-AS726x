@@ -9120,6 +9120,12 @@ Protocol</text>
 <wire x1="48.26" y1="86.36" x2="48.26" y2="88.9" width="0.2032" layer="97"/>
 <wire x1="48.26" y1="88.9" x2="48.26" y2="91.44" width="0.2032" layer="97"/>
 <wire x1="48.26" y1="88.9" x2="93.98" y2="88.9" width="0.2032" layer="97"/>
+<text x="46.482" y="139.446" size="1.778" layer="97" rot="R90">13lm</text>
+<text x="10.16" y="121.92" size="1.778" layer="97">Lumileds #: L130-5780001400001</text>
+<text x="10.16" y="124.46" size="1.778" layer="97">Shutter LED: Luxeon 3014</text>
+<text x="10.16" y="119.38" size="1.778" layer="97">28lm @ 60mA</text>
+<text x="10.16" y="116.84" size="1.778" layer="97">CRI: 80</text>
+<text x="48.26" y="81.28" size="1.778" layer="97">7-bit unshifted I2C address: 0x49</text>
 </plain>
 <instances>
 <instance part="FRAME1" gate="G$1" x="0" y="0"/>
