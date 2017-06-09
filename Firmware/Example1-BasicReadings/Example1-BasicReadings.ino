@@ -5,7 +5,11 @@
   Date: March 8th, 2017
   License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
 
-  Read the raw Violet, Blue, Green, Yellow, Orange, and Red data from the AS7262 (Visible) or AS7263 (NIR) sensors
+  Feel like supporting our work? Buy a board from SparkFun!
+
+  Read the raw integer values from the sensor.
+  Violet, Blue, Green, Yellow, Orange, and Red data from the AS7262 (Visible)
+  R, S, T, U, V, W data from the AS7263 (NIR)
 
   The AS726x Qwiic board can be configured to communicate over I2C (default) or serial. This example
   assumes we are communicating over I2C. See schematic for jumpers to change to serial and datasheet
@@ -37,9 +41,6 @@
   setIntegrationTime(byte integrationValue)
   enableInterrupt()
   disableInterrupt()
-
-  To Write:
-
 */
 
 #include <Wire.h>
@@ -62,7 +63,9 @@ void setup()
     Serial.println("Sensor failed to respond. Check wiring.");
     while (1); //Freeze!
   }
-  Serial.println("AS726x online!");
+
+  if(sensorVersion == SENSORTYPE_AS7262) Serial.println("AS7262 online!");
+  if(sensorVersion == SENSORTYPE_AS7263) Serial.println("AS7263 online!");
 }
 
 void loop()
@@ -72,10 +75,6 @@ void loop()
 
   float tempF = getTemperatureF();
   
-  //float calibrationValueV = getVioletCalibration();
-  //Serial.print("calV[");
-  //Serial.print(getCalibratedViolet(), 2);
-
   if(sensorVersion == SENSORTYPE_AS7262)
   {
     //Visible readings

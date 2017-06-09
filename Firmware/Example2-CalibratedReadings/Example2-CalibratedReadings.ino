@@ -5,6 +5,8 @@
   Date: March 8th, 2017
   License: This code is public domain but you buy me a beer if you use this and we meet someday (Beerware license).
 
+  Feel like supporting our work? Buy a board from SparkFun!
+
   Read the calibrated sensor values. These are more accurate but you have to deal with floating point numbers.
   Calibrated Violet, Blue, Green, Yellow, Orange, and Red data from the AS7262 (Visible)
   Calibrated R, S, T, U, V, W data from the AS7263 (NIR)
